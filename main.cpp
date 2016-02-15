@@ -9,7 +9,7 @@
 int sc_main (int argc , char *argv[]) {
 
     sc_signal<bool> ASig, BSig, FSig;
-    sc_clock TestClk("TestClock", 10, SC_NS, 0.5);
+    sc_clock TestClk("TestClock", 10, SC_NS, 0.5, 1, SC_NS);
     
     stim Stim1("Stimulus");
     Stim1.A(ASig);
