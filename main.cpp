@@ -27,7 +27,19 @@ int sc_main (int argc , char *argv[]) {
     Monitor1.F(FSig);
     Monitor1.Clk(TestClk);
     
-   sc_start();
+    
+    // waveform tracing
+    sc_trace_file* tf = sc_create_vcd_trace_file("traces");
+    sc_trace(tf, ASig, "A");
+    sc_trace(tf, BSig, "B");
+    sc_trace(tf, FSig, "F");
+    sc_trace(tf, DUT.S1, "S1");
+    sc_trace(tf, DUT.S2, "S2");
+    sc_trace(tf, DUT.S3, "S3");
+    
+    sc_start();
+    
+    sc_close_vcd_trace_file(tf);
 
    return 0;
 }
