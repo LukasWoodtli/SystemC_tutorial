@@ -14,9 +14,9 @@ else()
     message( FATAL_ERROR "SystemC library not found." )
 endif()
 
+set(SOURCES main.cpp nand.h exor.h stim.h)
 
-
-add_executable(SystemCTutorial main.cpp)
+add_executable(SystemCTutorial ${SOURCES})
 
 target_link_libraries(SystemCTutorial ${SystemC_LIBRARIES})
 
