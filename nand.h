@@ -1,7 +1,11 @@
 #ifndef _NAND_H__
 #define _NAND_H__
 
-#include <systemc.h>
+#include <systemc>
+
+#include <iostream>
+
+using namespace std;
 
 SC_MODULE(nand) {
   sc_in<bool> A, B;
@@ -12,6 +16,7 @@ SC_MODULE(nand) {
   }
 
   SC_CTOR(nand) {
+    cout << "Construction of NAND: " << name() << endl;
     SC_METHOD(do_it);
     sensitive << A << B;
   }

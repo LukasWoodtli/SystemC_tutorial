@@ -9,7 +9,11 @@
 #ifndef stim_h
 #define stim_h
 
-#include <systemc.h>
+#include <systemc>
+
+#include <iostream>
+
+using namespace std;
 
 SC_MODULE(stim)
 {
@@ -35,6 +39,7 @@ SC_MODULE(stim)
     
     SC_CTOR(stim)
     {
+        cout << "Construction of stim: " << name() << endl;
         SC_THREAD(stimGen);
         sensitive << Clk.pos();
     }

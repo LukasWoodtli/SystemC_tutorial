@@ -9,7 +9,7 @@
 #ifndef mon_h
 #define mon_h
 
-#include <systemc.h>
+#include <systemc>
 
 #include <iostream>
 #include <iomanip>
@@ -40,6 +40,7 @@ SC_MODULE(mon)
     
     SC_CTOR(mon)
     {
+        cout << "Construction of mon: " << name() << endl;
         SC_THREAD(monitor);
         sensitive << Clk.pos();        
     }
